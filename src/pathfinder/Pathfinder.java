@@ -14,4 +14,8 @@ public class Pathfinder {
 		}
 		System.out.println(board);
 	}
+	
+	public String run(String path){
+		return path;
+	}
 }
