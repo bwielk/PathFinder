@@ -15,15 +15,27 @@ public class PathfinderTest{
 	}
 	
 	@Test
+	public void canEvaluateThatAPathConfigurationWorks(){
+		assertEquals(true, pathfinder.isPathCorrect("rrrrdddd"));
+		assertEquals(true, pathfinder.isPathCorrect("ddrdrrdr"));
+		assertEquals(true, pathfinder.isPathCorrect("drdrdrdr"));
+		assertEquals(true, pathfinder.isPathCorrect("ddddrrrr"));
+		assertEquals(true, pathfinder.isPathCorrect("ddruurdddldrrr"));
+		assertEquals(false, pathfinder.isPathCorrect("ddrddrdddldrrr"));
+		assertEquals(false, pathfinder.isPathCorrect("ddrdrlrd"));
+		assertEquals(false, pathfinder.isPathCorrect("ddddrrrl"));
+	}
+	
+	@Test
 	public void findPathPart1(){
-		String path = "l?l?dd?d";
-		assertEquals("lllldddd", pathfinder.run(path));
+		String path = "r?r?dd?d";
+		assertEquals("rrrrdddd", pathfinder.isPathCorrect(path));
 	}
 	
 	@Test
 	public void findPathPart2(){
-		String path = "dd????ll";
-		assertEquals("ddddllll", pathfinder.run(path));
+		String path = "dd????rr";
+		assertEquals("ddddrrrr", pathfinder.run(path));
 	}
 	
 	@Test
